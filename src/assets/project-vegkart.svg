@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="44" y1="29" x2="540" y2="351" gradientUnits="userSpaceOnUse"><stop stop-color="#e8fff0"/><stop offset="1" stop-color="#c4f0d5"/></linearGradient>
+    <linearGradient id="card" x1="160" y1="82" x2="449" y2="300" gradientUnits="userSpaceOnUse"><stop stop-color="#fff"/><stop offset="1" stop-color="#f7fff9"/></linearGradient>
+  </defs>
+  <rect width="600" height="360" rx="24" fill="url(#bg)"/>
+  <circle cx="500" cy="60" r="74" fill="#fff" fill-opacity=".3"/><circle cx="89" cy="304" r="83" fill="#fff" fill-opacity=".24"/>
+  <rect x="88" y="42" width="424" height="276" rx="17" fill="url(#card)" stroke="#d2e8d8" stroke-width="2"/>
+  <path d="M116 77h119" stroke="#254f39" stroke-width="10" stroke-linecap="round"/><path d="M369 77h48m19 0h30" stroke="#9bb8a5" stroke-width="6" stroke-linecap="round"/>
+  <rect x="116" y="103" width="368" height="85" rx="11" fill="#effbf2"/>
+  <text x="134" y="137" fill="#255b3e" font-family="Arial,sans-serif" font-size="22" font-weight="700">Fresh from the garden</text>
+  <text x="134" y="163" fill="#668a71" font-family="Arial,sans-serif" font-size="13">Good food, delivered with care.</text>
+  <path d="M405 154c-20-16-12-42 5-49 18 5 27 26 9 43-5 4-9 6-14 6Z" fill="#6abf77"/><path d="M415 112c6-12 18-15 26-10-4 11-14 16-26 10Z" fill="#3a9655"/>
+  <rect x="116" y="208" width="106" height="79" rx="10" fill="#f1faf2"/><rect x="243" y="208" width="106" height="79" rx="10" fill="#f1faf2"/><rect x="370" y="208" width="106" height="79" rx="10" fill="#f1faf2"/>
+  <circle cx="169" cy="243" r="19" fill="#ffae59"/><path d="M166 222c3-8 10-10 16-7-3 7-8 10-16 7Z" fill="#55a66a"/>
+  <path d="M276 225c-13 0-20 12-17 24l9 21h20l9-21c3-12-8-24-21-24Z" fill="#e35f63"/><path d="M273 228c-2-8 3-13 10-14 2 7-2 13-10 14Z" fill="#4c9a5b"/>
+  <path d="M423 228c15 0 24 11 20 24-3 11-14 20-20 20s-17-9-20-20c-4-13 5-24 20-24Z" fill="#a271ca"/><path d="M423 229v40" stroke="#e8d8f8" stroke-width="3"/>
+</svg>

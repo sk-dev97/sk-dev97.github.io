@@ -1,0 +1,26 @@
+/* This keeps the skill logos the same size and lined up. */
+.skill-icons i[class*="devicon"] {
+  font-size:34px;line-height:1
+}.skill-logo-img {
+  width:34px;height:34px;object-fit:contain
+}.intellij-logo {
+  width:38px;height:38px
+}.skill-icons li:hover i:not([class*="devicon"]) {
+  color:var(--accent)
+}.skill-icons .sql-mark {
+  font-size:31px;color:#447fb3
+}.skill-icons li[title="GitHub"] i {
+  color:#202124
+}.skill-icons li:hover .skill-logo-img {
+  transform:scale(1.08)
+}.skill-logo-img {
+  transition:transform .25s ease
+}@media(max-width:520px) {
+  .skill-card {
+  padding:20px 16px
+}.skill-icons {
+  gap:8px
+}.skill-icons li {
+  padding:6px
+}
+}
