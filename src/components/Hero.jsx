@@ -10,10 +10,10 @@ export default function Hero() {
 
   const downloadAllResumes = () => {
   const resumes = [
-    "/Resumes/Suresh_Resume_FullStack.pdf",
-    "/Resumes/Suresh_Resume_Java_Backend_Dev.pdf",
-    "/Resumes/Suresh_Resume_React_Frontend_Dev.pdf",
-    "/Resumes/Suresh_Resume_Junior_Web_Dev.pdf",
+    "/portfolio/Resumes/Suresh_Resume_FullStack.pdf",
+    "/portfolio/Resumes/Suresh_Resume_Java_Backend_Dev.pdf",
+    "/portfolio/Resumes/Suresh_Resume_React_Frontend_Dev.pdf",
+    "/portfolio/Resumes/Suresh_Resume_Junior_Web_Dev.pdf",
   ];
 
   resumes.forEach((resume, index) => {
@@ -95,28 +95,28 @@ export default function Hero() {
   {resumeMenuOpen && (
     <div className="resume-menu">
       <a
-        href="/Resumes/Suresh_Resume_FullStack.pdf"
+        href="/portfolio/Resumes/Suresh_Resume_FullStack.pdf"
         download
       >
         Java Full Stack Developer
       </a>
 
       <a
-        href="/Resumes/Suresh_Resume_Java_Backend_Dev.pdf"
+        href="/portfolio/Resumes/Suresh_Resume_Java_Backend_Dev.pdf"
         download
       >
         Java Backend Developer
       </a>
 
       <a
-        href="/Resumes/Suresh_Resume_React_Frontend_Dev.pdf"
+        href="/portfolio/Resumes/Suresh_Resume_React_Frontend_Dev.pdf"
         download
       >
         React Frontend Developer
       </a>
 
       <a
-        href="/Resumes/Suresh_Resume_Junior_Web_Dev.pdf"
+        href="/portfolio/Resumes/Suresh_Resume_Junior_Web_Dev.pdf"
         download
       >
         Junior Web Developer
