@@ -1,0 +1,103 @@
+/* Neon colors, glowing cards, and the moving galaxy background. */
+.neon-toggle {
+  display:inline-flex;align-items:center;justify-content:center;gap:5px;border:1px solid color-mix(in srgb,var(--accent) 52%,var(--border));border-radius:999px;background:color-mix(in srgb,var(--accent) 8%,transparent);color:var(--accent);padding:7px 10px;font:600 10px var(--sans);letter-spacing:.04em;cursor:pointer;transition:all .28s ease
+}
+.neon-toggle i {
+  font-size:17px
+}
+.neon-toggle:hover {
+  transform:translateY(-1px);box-shadow:0 0 16px color-mix(in srgb,var(--accent) 34%,transparent)
+}
+html[data-neon="true"] {
+  --accent:#58f4ff;--title:#f5f2ff;--text:#dfddf4;--muted:#b7b4d3;--body:#070814;--surface:rgba(14,17,43,.88);--border:rgba(135,119,255,.38);--serif:"Orbitron",sans-serif;--sans:"Space Grotesk",sans-serif;background:#070814
+}
+html[data-neon="true"] body {
+  position:relative;isolation:isolate;perspective:1100px;background:transparent;color:var(--text)
+}
+html[data-neon="true"] body::before {
+  content:"";position:fixed;z-index:-1;inset:-10%;pointer-events:none;background-image:radial-gradient(ellipse at 54% 48%,rgba(157,69,255,.34),transparent 38%),linear-gradient(148deg,transparent 31%,rgba(68,73,207,.08) 40%,rgba(62,225,255,.2) 48%,rgba(195,83,255,.17) 55%,transparent 68%);background-size:100% 100%,200% 180%;background-position:center,0% 50%;opacity:.95;transform-style:preserve-3d;will-change:transform;animation:galaxy-float 55s ease-in-out infinite alternate
+}
+html[data-neon="true"] body::after {
+  content:"";position:fixed;z-index:-1;inset:-5%;pointer-events:none;background-image:radial-gradient(1.5px 1.5px at 28px 34px,#ffffffee 98%,transparent),radial-gradient(1px 1px at 110px 160px,rgba(139,227,255,.9) 98%,transparent),radial-gradient(1px 1px at 70px 95px,rgba(255,184,250,.78) 98%,transparent);background-size:240px 220px,310px 280px,390px 350px;opacity:.75;transform:translateZ(-20px);will-change:transform;animation:star-drift 85s ease-in-out infinite alternate
+}
+@keyframes galaxy-float {
+  from { transform:translate3d(-1%,0,0) scale(1); }
+  to { transform:translate3d(1%,1%,0) scale(1.04); }
+}
+@keyframes star-drift {
+  from { transform:translate3d(0,0,-20px); }
+  to { transform:translate3d(-1%,1%,-20px); }
+}
+html[data-neon="true"] .header {
+  background:rgba(7,8,20,.56);border-color:rgba(88,244,255,.25);box-shadow:0 8px 30px rgba(0,0,0,.2)
+}
+html[data-neon="true"] .logo,html[data-neon="true"] .heading h2,html[data-neon="true"] .hero h1,html[data-neon="true"] .skill-card h3,html[data-neon="true"] .project-card-body h3,html[data-neon="true"] .education-card h3 {
+  font-family:"Orbitron",sans-serif
+}
+html[data-neon="true"] .hero h1 {
+  font-size:clamp(52px,6vw,66px);text-shadow:0 0 24px rgba(88,244,255,.22)
+}
+html[data-neon="true"] .heading h2 {
+  font-size:34px
+}
+html[data-neon="true"] .hero-copy p,html[data-neon="true"] .about-copy p,html[data-neon="true"] .project-description,html[data-neon="true"] .education-card p {
+  font-size:17px
+}
+html[data-neon="true"] .project-card,html[data-neon="true"] .skill-card,html[data-neon="true"] .education-card {
+  background:rgba(11,14,37,.82);border-color:rgba(103,224,255,.29);box-shadow:0 0 25px rgba(108,82,255,.12);backdrop-filter:blur(12px)
+}
+html[data-neon="true"] .project-card:hover,html[data-neon="true"] .skill-card:hover,html[data-neon="true"] .education-card:hover {
+  border-color:#58f4ff;box-shadow:0 0 32px rgba(88,244,255,.24),0 0 68px rgba(182,62,255,.13)
+}
+html[data-neon="true"] .skill-icons li {
+  background:rgba(18,21,51,.78);border-color:rgba(139,126,255,.38)
+}
+html[data-neon="true"] .skill-icons li:hover {
+  box-shadow:0 0 18px rgba(88,244,255,.2)
+}
+html[data-neon="true"] .button {
+  box-shadow:0 0 18px rgba(88,244,255,.22)
+}
+html[data-neon="true"] .neon-toggle {
+  color:#fff;background:rgba(156,66,255,.22);border-color:#d980ff;box-shadow:0 0 14px rgba(194,81,255,.38)
+}
+.project-card:hover,.skill-card:hover,.education-card:hover {
+  transform:translateY(-7px) scale(1.035);z-index:2;box-shadow:0 18px 42px rgba(22,39,62,.16)
+}
+.skill-icons li:hover {
+  transform:translateY(-3px) scale(1.06)
+}
+@media(max-width:520px) {
+  .nav-items {
+  gap:0;justify-content:space-between
+}.nav-link {
+  font-size:9px;gap:2px;min-width:22px
+}.nav-link i {
+  display:block;font-size:19px
+}.theme {
+  font-size:0;padding:5px
+}.theme i {
+  font-size:19px
+}.neon-toggle {
+  font-size:0;border:0;background:transparent;padding:5px
+}.neon-toggle i {
+  font-size:19px
+}.project-card:hover,.skill-card:hover,.education-card:hover {
+  transform:translateY(-3px) scale(1.015)
+}html[data-neon="true"] .hero h1 {
+  font-size:42px
+}html[data-neon="true"] .heading h2 {
+  font-size:28px
+}html[data-neon="true"] .hero-copy p,html[data-neon="true"] .about-copy p,html[data-neon="true"] .project-description,html[data-neon="true"] .education-card p {
+  font-size:15px
+}
+}
+@media(prefers-reduced-motion:reduce) {
+  html[data-neon="true"] body::before {
+  animation:none
+}html[data-neon="true"] body::after {
+  animation:none
+}.project-card:hover,.skill-card:hover,.education-card:hover,.skill-icons li:hover {
+  transform:none
+}
+}

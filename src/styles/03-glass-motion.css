@@ -1,0 +1,32 @@
+/* Smooth movement when I hover over links, buttons, and cards. */
+.header {
+  background:color-mix(in srgb,var(--body) 64%,transparent);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-bottom:1px solid color-mix(in srgb,var(--border) 72%,transparent);box-shadow:0 8px 28px #18243a0a;transition:background .35s ease,border-color .35s ease,box-shadow .35s ease
+}
+body {
+  transition:background-color .4s ease,color .4s ease
+}
+.nav-link,.theme {
+  transition:color .3s ease,transform .3s ease
+}
+.nav-link:hover {
+  transform:translateY(-1px)
+}
+.button,.project-card,.skill-icons li,.project-view,.top {
+  transition:transform .3s ease,border-color .3s ease,background-color .3s ease,color .3s ease,box-shadow .3s ease
+}
+.reveal-on-scroll {
+  opacity:0;transform:translateY(18px);transition:opacity .65s ease,transform .65s cubic-bezier(.2,.7,.2,1)
+}
+.reveal-on-scroll.is-visible {
+  opacity:1;transform:translateY(0)
+}
+@media(prefers-reduced-motion:reduce) {
+  .reveal-on-scroll {
+    opacity:1;transform:none;transition:none
+  }
+}
+@media(prefers-reduced-motion:reduce) {
+  html {
+  scroll-behavior:auto
+}
+}

@@ -1,0 +1,144 @@
+/* Text styles for the page headings and paragraphs. */
+body {
+  font-size:16px
+}
+.nav-link {
+  font-size:14px;font-weight:500
+}
+.logo {
+  font-size:18px;font-weight:600
+}
+.heading h2 {
+  font-size:30px;font-weight:600
+}
+.heading p {
+  font-size:14px
+}
+.eyebrow-index {
+  font-size:12px;font-weight:600
+}
+.hero .hello {
+  font-size:15px;font-weight:500
+}
+.hero h1 {
+  font-size:50px;font-weight:600
+}
+.hero .job {
+  font-size:18px;font-weight:500
+}
+.hero-copy p {
+  font-size:16px;line-height:1.8
+}
+.button {
+  font-size:14px;font-weight:600
+}
+.about-copy p {
+  font-size:16px;line-height:1.85
+}
+.education-card h3 {
+  font-size:20px;font-weight:600
+}
+.education-card p,.education-card span {
+  font-size:14px
+}
+.skill-card h3 {
+  font-size:24px;font-weight:600
+}
+.skill-icons span {
+  font-size:12px;font-weight:500
+}
+.project-card-body h3 {
+  font-size:24px;font-weight:600
+}
+.project-description {
+  font-size:15px;line-height:1.75
+}
+.tool-tags span {
+  font-size:11px;font-weight:500
+}
+.project-view {
+  font-size:12px;font-weight:600
+}
+.promo h3 {
+  font-size:21px;font-weight:600
+}
+.promo p {
+  font-size:14px
+}
+.contact-info h3 {
+  font-size:17px;font-weight:600
+}
+.contact-item b {
+  font-size:13px;font-weight:600
+}
+.contact-item span {
+  font-size:12px
+}
+.field label {
+  font-size:12px;font-weight:500
+}
+.field input,.field textarea {
+  font-size:13px
+}
+.footer-name {
+  font-size:21px;font-weight:600
+}
+.footer-sub,.footer-links {
+  font-size:12px
+}
+.copyright {
+  font-size:11px
+}
+@media(max-width:680px) {
+  
+ .nav-link {
+  font-size:12px
+}
+ .hero h1 {
+  font-size:42px
+}
+ .hero .job {
+  font-size:16px
+}
+ .hero-copy p,.about-copy p {
+  font-size:15px
+}
+ .heading h2 {
+  font-size:27px
+}
+ .project-card-body h3 {
+  font-size:22px
+}
+
+}
+@media(max-width:520px) {
+  
+ .nav-link {
+  font-size:9px
+}
+ .nav-link i {
+  font-size:18px
+}
+ .hero h1 {
+  font-size:38px
+}
+ .hero .job {
+  font-size:16px
+}
+ .hero-copy p,.about-copy p {
+  font-size:15px
+}
+ .heading h2 {
+  font-size:25px
+}
+ .project-card-body h3 {
+  font-size:21px
+}
+ .project-description {
+  font-size:14px
+}
+ .skill-icons span {
+  font-size:12px
+}
+
+}

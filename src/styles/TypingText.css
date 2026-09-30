@@ -1,0 +1,24 @@
+/* The typing title and its blinking cursor. */
+.typing-text {
+  color: #2563eb;
+  font-size: 28px;
+  font-weight: 600;
+  min-height: 35px;
+}
+
+.typing-cursor {
+  display: inline-block;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .typing-text {
+    font-size: 1.9rem;
+  }
+}
