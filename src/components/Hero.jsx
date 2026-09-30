@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section id="home" className="container hero" data-nav-section>
       <div className="social" aria-label="Social and contact links">
-        <a href="https://www.linkedin.com/in/suresh-kumar" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+        <a href="https://www.linkedin.com/in/sureshkumar1911/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
           <i className="ri-linkedin-fill" />
         </a>
         <a href="https://github.com/sureshkumar-java97" target="_blank" rel="noreferrer" aria-label="GitHub">
