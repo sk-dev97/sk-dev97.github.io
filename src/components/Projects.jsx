@@ -43,9 +43,27 @@ export default function Projects() {
                     <span key={technology}>{technology}</span>
                   ))}
                 </div>
-                <span className="project-view project-note">
-                  Source link coming soon <ExternalLink size={15} aria-hidden="true" />
-                </span>
+                
+       <div className="project-links">
+  <a
+    className="project-view"
+    href={project.live}
+    target="_blank"
+    rel="noreferrer"
+  >
+    Live Demo <ExternalLink size={15} aria-hidden="true" />
+  </a>
+
+  <a
+    className="project-view"
+    href={project.github}
+    target="_blank"
+    rel="noreferrer"
+  >
+    GitHub <ExternalLink size={15} aria-hidden="true" />
+  </a>
+</div>
+
               </div>
             </article>
           ))}

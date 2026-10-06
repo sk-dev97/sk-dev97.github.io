@@ -9,32 +9,32 @@ export default function Hero() {
   const [resumeMenuOpen, setResumeMenuOpen] = useState(false);
 
   const downloadAllResumes = () => {
-  const resumes = [
-    "/portfolio/Resumes/Suresh_Resume_FullStack.pdf",
-    "/portfolio/Resumes/Suresh_Resume_Java_Backend_Dev.pdf",
-    "/portfolio/Resumes/Suresh_Resume_React_Frontend_Dev.pdf",
-    "/portfolio/Resumes/Suresh_Resume_Junior_Web_Dev.pdf",
-  ];
+    const resumes = [
+      "/Resumes/Suresh_Resume_FullStack.pdf",
+      "/Resumes/Suresh_Resume_Java_Backend_Dev.pdf",
+      "/Resumes/Suresh_Resume_React_Frontend_Dev.pdf",
+      "/Resumes/Suresh_Resume_Junior_Web_Dev.pdf",
+    ];
 
-  resumes.forEach((resume, index) => {
-    setTimeout(() => {
-      const link = document.createElement("a");
-      link.href = resume;
-      link.download = "";
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    }, index * 700);
-  });
+    resumes.forEach((resume, index) => {
+      setTimeout(() => {
+        const link = document.createElement("a");
+        link.href = resume;
+        link.download = "";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }, index * 700);
+    });
 
-  setResumeMenuOpen(false);
-};
+    setResumeMenuOpen(false);
+  };
 
   return (
     <section id="home" className="container hero" data-nav-section>
       <div className="social" aria-label="Social and contact links">
         <a
-          href="https://www.linkedin.com/in/suresh-kumar"
+          href="https://www.linkedin.com/in/sureshkumar1911/"
           target="_blank"
           rel="noreferrer"
           aria-label="LinkedIn"
@@ -43,7 +43,7 @@ export default function Hero() {
         </a>
 
         <a
-          href="https://github.com/sureshkumar-java97"
+          href="https://github.com/sk-dev97"
           target="_blank"
           rel="noreferrer"
           aria-label="GitHub"
@@ -84,56 +84,53 @@ export default function Hero() {
           </a>
 
           <div className="resume-dropdown">
-  <button
-    className="button resume-button"
-    onClick={() => setResumeMenuOpen(!resumeMenuOpen)}
-  >
-    Download resume
-    <ChevronDown size={18} />
-  </button>
+            <button
+              className="button resume-button"
+              onClick={() => setResumeMenuOpen(!resumeMenuOpen)}
+            >
+              Download resume
+              <ChevronDown size={18} />
+            </button>
 
-  {resumeMenuOpen && (
-    <div className="resume-menu">
-      <a
-        href="/portfolio/Resumes/Suresh_Resume_FullStack.pdf"
-        download
-      >
-        Java Full Stack Developer
-      </a>
+            {resumeMenuOpen && (
+              <div className="resume-menu">
+                <a
+                  href="/Resumes/Suresh_Resume_FullStack.pdf"
+                  download
+                >
+                  Java Full Stack Developer
+                </a>
 
-      <a
-        href="/portfolio/Resumes/Suresh_Resume_Java_Backend_Dev.pdf"
-        download
-      >
-        Java Backend Developer
-      </a>
+                <a
+                  href="/Resumes/Suresh_Resume_Java_Backend_Dev.pdf"
+                  download
+                >
+                  Java Backend Developer
+                </a>
 
-      <a
-        href="/portfolio/Resumes/Suresh_Resume_React_Frontend_Dev.pdf"
-        download
-      >
-        React Frontend Developer
-      </a>
+                <a
+                  href="/Resumes/Suresh_Resume_React_Frontend_Dev.pdf"
+                  download
+                >
+                  React Frontend Developer
+                </a>
 
-      <a
-        href="/portfolio/Resumes/Suresh_Resume_Junior_Web_Dev.pdf"
-        download
-      >
-        Junior Web Developer
-      </a>
+                <a
+                  href="/Resumes/Suresh_Resume_Junior_Web_Dev.pdf"
+                  download
+                >
+                  Junior Web Developer
+                </a>
 
-      <div className="resume-divider"></div>
+                <div className="resume-divider"></div>
 
-      <button onClick={downloadAllResumes}>
-        Download All 4 Resumes
-      </button>
-    </div>
-  )}
-</div>
-
-
+                <button onClick={downloadAllResumes}>
+                  Download All 4 Resumes
+                </button>
+              </div>
+            )}
+          </div>
         </div>
-
       </div>
 
       <div className="hero-visual">
@@ -155,3 +152,4 @@ export default function Hero() {
     </section>
   );
 }
+
