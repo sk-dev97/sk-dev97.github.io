@@ -8,23 +8,38 @@ import TypingText from "./TypingText.jsx";
 export default function Hero() {
   const [resumeMenuOpen, setResumeMenuOpen] = useState(false);
 
+  // Download all 4 resumes
   const downloadAllResumes = () => {
     const resumes = [
-      "/Resumes/Suresh_Resume_FullStack.pdf",
-      "/Resumes/Suresh_Resume_Java_Backend_Dev.pdf",
-      "/Resumes/Suresh_Resume_React_Frontend_Dev.pdf",
-      "/Resumes/Suresh_Resume_Junior_Web_Dev.pdf",
+      {
+        url: "/Resumes/Suresh_Resume_FullStack.pdf",
+        name: "Suresh_Resume_FullStack.pdf",
+      },
+      {
+        url: "/Resumes/Suresh_Resume_Java_Backend_Dev.pdf",
+        name: "Suresh_Resume_Java_Backend_Dev.pdf",
+      },
+      {
+        url: "/Resumes/Suresh_Resume_React_Frontend_Dev.pdf",
+        name: "Suresh_Resume_React_Frontend_Dev.pdf",
+      },
+      {
+        url: "/Resumes/Suresh_Resume_Junior_Web_Dev.pdf",
+        name: "Suresh_Resume_Junior_Web_Dev.pdf",
+      },
     ];
 
     resumes.forEach((resume, index) => {
       setTimeout(() => {
         const link = document.createElement("a");
-        link.href = resume;
-        link.download = "";
+
+        link.href = resume.url;
+        link.download = resume.name;
+
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
-      }, index * 700);
+      }, index * 1000);
     });
 
     setResumeMenuOpen(false);
@@ -51,7 +66,10 @@ export default function Hero() {
           <i className="ri-github-fill" />
         </a>
 
-        <a href={`mailto:${profile.email}`} aria-label="Email Suresh">
+        <a
+          href={`mailto:${profile.email}`}
+          aria-label="Email Suresh"
+        >
           <i className="ri-mail-line" />
         </a>
 
@@ -66,7 +84,9 @@ export default function Hero() {
       </div>
 
       <div className="hero-copy">
-        <div className="hello">Open to entry-level opportunities</div>
+        <div className="hello">
+          Open to entry-level opportunities
+        </div>
 
         <h1>{profile.name}</h1>
 
@@ -94,39 +114,46 @@ export default function Hero() {
 
             {resumeMenuOpen && (
               <div className="resume-menu">
+
+                {/* Full Stack Resume */}
                 <a
                   href="/Resumes/Suresh_Resume_FullStack.pdf"
-                  download
+                  download="Suresh_Resume_FullStack.pdf"
                 >
                   Java Full Stack Developer
                 </a>
 
+                {/* Java Backend Resume */}
                 <a
                   href="/Resumes/Suresh_Resume_Java_Backend_Dev.pdf"
-                  download
+                  download="Suresh_Resume_Java_Backend_Dev.pdf"
                 >
                   Java Backend Developer
                 </a>
 
+                {/* React Frontend Resume */}
                 <a
                   href="/Resumes/Suresh_Resume_React_Frontend_Dev.pdf"
-                  download
+                  download="Suresh_Resume_React_Frontend_Dev.pdf"
                 >
                   React Frontend Developer
                 </a>
 
+                {/* Junior Web Developer Resume */}
                 <a
                   href="/Resumes/Suresh_Resume_Junior_Web_Dev.pdf"
-                  download
+                  download="Suresh_Resume_Junior_Web_Dev.pdf"
                 >
                   Junior Web Developer
                 </a>
 
                 <div className="resume-divider"></div>
 
+                {/* Download All 4 Resumes */}
                 <button onClick={downloadAllResumes}>
                   Download All 4 Resumes
                 </button>
+
               </div>
             )}
           </div>
@@ -152,4 +179,3 @@ export default function Hero() {
     </section>
   );
 }
-
