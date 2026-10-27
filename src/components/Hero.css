@@ -1,0 +1,279 @@
+
+/* ========================================
+   HERO SECTION
+======================================== */
+
+section.hero.container {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  column-gap: 2rem;
+
+  width: 100%;
+  max-width: 1400px;
+  min-height: 97vh;
+  min-height: 97svh;
+  margin: 0 auto;
+  padding: 4rem 3rem 5rem;
+
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+}
+
+/* ========================================
+   BACKGROUND VIDEO
+======================================== */
+
+section.hero.container > .hero-visual {
+  position: absolute;
+  z-index: 0;
+  top: 50%;
+  right: 13%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 54%;
+  height: 88%;
+  overflow: hidden;
+
+  background: transparent;
+  border-radius: 0;
+  pointer-events: none;
+}
+
+section.hero.container .hero-animation {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 620px;
+
+  object-fit: contain;
+  object-position: center;
+
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+/* Dark gradient keeps text readable */
+
+section.hero.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  background: linear-gradient(
+    90deg,
+    #000 0%,
+    rgba(0, 0, 0, 0.96) 28%,
+    rgba(0, 0, 0, 0.65) 50%,
+    rgba(0, 0, 0, 0.05) 100%
+  );
+}
+
+/* ========================================
+   HERO TEXT
+======================================== */
+
+section.hero.container > .hero-copy {
+  position: relative;
+  z-index: 2;
+
+  grid-column: 1;
+  grid-row: 1;
+
+  min-width: 0;
+  max-width: 580px;
+  padding-left: 80px;
+}
+
+/* ========================================
+   SOCIAL / CONTACT ICONS
+======================================== */
+
+section.hero.container > .social {
+  position: absolute;
+  z-index: 3;
+  left: 75px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+section.hero.container > .social a {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ========================================
+   SCROLL INDICATOR
+======================================== */
+
+section.hero.container > .scroll {
+  position: absolute;
+  z-index: 3;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Remove old portrait */
+
+section.hero.container .portrait,
+section.hero.container .portrait-bg {
+  display: none;
+}
+
+/* ========================================
+   TABLET: 769px–900px
+======================================== */
+
+@media (max-width: 900px) and (min-width: 769px) {
+  section.hero.container {
+    min-height: 90vh;
+    padding: 3rem 2rem 4rem;
+    column-gap: 1rem;
+  }
+
+  section.hero.container > .hero-copy {
+    padding-left: 35px;
+  }
+
+  section.hero.container > .hero-visual {
+    right: 3%;
+    width: 52%;
+  }
+
+  section.hero.container .hero-animation {
+    max-height: 480px;
+  }
+
+  section.hero.container > .social {
+    left: 6px;
+    gap: 0.4rem;
+  }
+}
+
+/* ========================================
+   MOBILE: 768px AND BELOW
+======================================== */
+
+@media (max-width: 768px) {
+  section.hero.container {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto auto auto;
+    align-items: start;
+
+    min-height: 0;
+    padding: 2.5rem 1.25rem 3rem;
+    row-gap: 1.25rem;
+  }
+
+  /* Social icons get their own row */
+
+  section.hero.container > .social {
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+
+    grid-column: 1;
+    grid-row: 1;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 0.65rem;
+
+    margin: 0;
+  }
+
+  /* Text sits below the icons */
+
+  section.hero.container > .hero-copy {
+    grid-column: 1;
+    grid-row: 2;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding-left: 0;
+  }
+
+  /* Video sits below the text */
+
+  section.hero.container > .hero-visual {
+    position: relative;
+    top: auto;
+    right: auto;
+    transform: none;
+
+    grid-column: 1;
+    grid-row: 3;
+
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  section.hero.container .hero-animation {
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    object-fit: contain;
+    object-position: center;
+  }
+
+  /* Softer overlay on smaller screens */
+
+  section.hero.container::before {
+    background: rgba(0, 0, 0, 0.2);
+  }
+
+  /* Hide desktop scroll indicator */
+
+  section.hero.container > .scroll {
+    display: none;
+  }
+}
+
+/* ========================================
+   SMALL PHONES: 480px AND BELOW
+======================================== */
+
+@media (max-width: 480px) {
+  section.hero.container {
+    padding: 2rem 1rem 2.5rem;
+    row-gap: 1rem;
+  }
+
+  section.hero.container > .social {
+    gap: 0.55rem;
+  }
+
+  section.hero.container > .hero-copy {
+    padding-left: 0;
+  }
+
+  section.hero.container > .hero-visual {
+    aspect-ratio: 4 / 3;
+  }
+}

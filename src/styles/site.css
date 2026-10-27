@@ -330,9 +330,7 @@ html[data-neon="true"] .education-card {
   color: var(--title);
 }
 
-.project-cards-personal {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
+
 
 .project-art {
   min-height: 155px;
@@ -389,11 +387,7 @@ html[data-neon="true"] .education-card {
   color: white;
 }
 
-@media (max-width: 680px) {
-  .project-cards-personal {
-    grid-template-columns: 1fr;
-  }
-}
+
 
 @media (max-width: 520px) {
   .nav-cta {
@@ -431,9 +425,7 @@ html[data-neon="true"] .education-card {
   outline-offset: 3px;
 }
 
-.project-cards-personal .project-card {
-  animation: project-card-enter .42s cubic-bezier(.2, .7, .2, 1);
-}
+
 
 @keyframes project-card-enter {
   from { opacity: 0; transform: translateY(16px) scale(.97); }
@@ -461,9 +453,4 @@ html[data-neon="true"] .education-card {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .project-filters button,.project-cards-personal .project-card {
-    transition: none;
-    animation: none;
-  }
-}
+

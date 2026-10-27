@@ -1,81 +1,252 @@
 import { useState } from "react";
-import { Mail, MapPin, MessageCircle } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import {
+  Mail,
+  MapPin,
+  MessageCircle,
+  Send,
+  BriefcaseBusiness,
+  ArrowUpRight,
+  LoaderCircle,
+} from "lucide-react";
+
 import { profile } from "../data/profile.js";
 import Reveal from "./Reveal.jsx";
+import "./Contact.css";
 
-// Lets visitors email me using the email app on their device.
+
+const EMAILJS_SERVICE_ID = "service_cmdftck";
+const EMAILJS_TEMPLATE_ID = "template_y58srcd";
+const EMAILJS_PUBLIC_KEY = "vVWkRPszxDUzGWT8w";
+
 export default function Contact() {
   const [formMessage, setFormMessage] = useState("");
+  const [messageType, setMessageType] = useState("");
+  const [isSending, setIsSending] = useState(false);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    const formData = new FormData(event.currentTarget);
-    const subject = formData.get("subject") || "Portfolio contact";
-    const message = formData.get("message");
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const body = `From: ${name} (${email})\n\n${message}`;
 
-    window.location.href = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    setFormMessage("Your email app should open with the message ready to send.");
+    if (isSending) return;
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const templateParams = {
+      name: formData.get("name")?.toString().trim() || "",
+      email: formData.get("email")?.toString().trim() || "",
+      subject:
+        formData.get("subject")?.toString().trim() ||
+        "Portfolio contact",
+      message: formData.get("message")?.toString().trim() || "",
+    };
+
+    setIsSending(true);
+    setFormMessage("Sending your message...");
+    setMessageType("loading");
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        { publicKey: EMAILJS_PUBLIC_KEY }
+      );
+
+      setFormMessage(
+        "Your message was sent successfully! Thank you for contacting me."
+      );
+      setMessageType("success");
+      form.reset();
+    } catch (error) {
+      console.error("EmailJS sending error:", error);
+
+      setFormMessage(
+        "Sorry, your message could not be sent. Please try again or email me directly."
+      );
+      setMessageType("error");
+    } finally {
+      setIsSending(false);
+    }
   }
 
   return (
     <section id="contact" className="section" data-nav-section>
       <div className="container">
         <Reveal>
-        <div className="heading">
-          <div className="eyebrow-index">05 / Contact</div>
-          <h2>Let’s build something together</h2>
-          <p>
-            I’m looking for an opportunity to begin my software development career.
-            Have a role, project, or question? I’d love to hear from you.
-          </p>
-        </div>
+          <div className="heading">
+            <div className="eyebrow-index">05 / Contact</div>
+            <h2>Let’s build something together</h2>
+            <p>
+              I’m looking for an opportunity to begin my software
+              development career. Have a role, project, or question?
+              I’d love to hear from you.
+            </p>
+          </div>
         </Reveal>
 
         <Reveal className="contact-grid">
           <div className="contact-info">
-            <h3>Talk to me</h3>
+            <span className="contact-eyebrow">
+              <BriefcaseBusiness size={16} />
+              GET IN TOUCH
+            </span>
+
+            <h3>Let’s start a conversation.</h3>
+
+            <p className="contact-intro">
+              Whether you have a job opportunity, a project idea, or
+              simply want to connect, feel free to send me a message.
+            </p>
+
             <div className="contact-item">
-              <Mail size={20} />
-              <div><b>Email</b><a className="contact-value" href={`mailto:${profile.email}`}>Send me an email</a></div>
+              <div className="contact-icon-box">
+                <Mail size={20} />
+              </div>
+              <div>
+                <b>Email</b>
+                <a
+                  className="contact-value"
+                  href={`mailto:${profile.email}`}
+                >
+                  {profile.email}
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
             </div>
+
             <div className="contact-item">
-              <i className="ri-whatsapp-line contact-icon" aria-hidden="true" />
-              <div><b>WhatsApp</b><a className="contact-value" href={`https://wa.me/${profile.phone.replace("+", "")}`} target="_blank" rel="noreferrer">Send me a message</a></div>
+              <div className="contact-icon-box">
+                <MessageCircle size={20} />
+              </div>
+              <div>
+                <b>WhatsApp</b>
+                <a
+                  className="contact-value"
+                  href={`https://wa.me/${String(
+                    profile.phone || ""
+                  ).replace(/\D/g, "")}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Send me a message
+                  <ArrowUpRight size={14} />
+                </a>
+              </div>
             </div>
+
             <div className="contact-item">
-              <MapPin size={20} />
-              <div><b>Location</b><span>{profile.location}</span></div>
+              <div className="contact-icon-box">
+                <MapPin size={20} />
+              </div>
+              <div>
+                <b>Location</b>
+                <span className="contact-value">
+                  {profile.location}
+                </span>
+              </div>
             </div>
+
             <div className="contact-item">
-              <MessageCircle size={20} />
-              <div><b>Availability</b><span>{profile.availability}</span></div>
+              <div className="contact-icon-box">
+                <BriefcaseBusiness size={20} />
+              </div>
+              <div>
+                <b>Availability</b>
+                <span className="contact-value">
+                  {profile.availability}
+                </span>
+              </div>
             </div>
           </div>
 
-          <form className="form" onSubmit={handleSubmit}>
-            <div className="field">
-              <label htmlFor="contact-name">Name</label>
-              <input id="contact-name" name="name" placeholder="Your name" required />
+          <form className="form contact-form" onSubmit={handleSubmit}>
+            <div className="contact-form-heading">
+              <span className="about-label">SEND A MESSAGE</span>
+              <h3>I'd love to hear from you.</h3>
+              <p>Fill in the details below and I'll get your message.</p>
             </div>
+
             <div className="field">
-              <label htmlFor="contact-email">Email</label>
-              <input id="contact-email" name="email" type="email" placeholder="Your email" required />
+              <label htmlFor="contact-name">Your name</label>
+              <input
+                id="contact-name"
+                name="name"
+                type="text"
+                placeholder="Enter your name"
+                autoComplete="name"
+                maxLength={100}
+                required
+                disabled={isSending}
+              />
             </div>
+
+            <div className="field">
+              <label htmlFor="contact-email">Your email</label>
+              <input
+                id="contact-email"
+                name="email"
+                type="email"
+                placeholder="you@example.com"
+                autoComplete="email"
+                maxLength={254}
+                required
+                disabled={isSending}
+              />
+            </div>
+
             <div className="field full">
               <label htmlFor="contact-subject">Subject</label>
-              <input id="contact-subject" name="subject" placeholder="Project or question" />
+              <input
+                id="contact-subject"
+                name="subject"
+                type="text"
+                placeholder="Job opportunity, project, or question"
+                maxLength={150}
+                disabled={isSending}
+              />
             </div>
+
             <div className="field full">
-              <label htmlFor="contact-message">Message</label>
-              <textarea id="contact-message" name="message" placeholder="Tell me a little about it" required />
+              <label htmlFor="contact-message">Your message</label>
+              <textarea
+                id="contact-message"
+                name="message"
+                placeholder="Write your message here..."
+                rows={5}
+                maxLength={5000}
+                required
+                disabled={isSending}
+              />
             </div>
-            <button className="button" type="submit">
-              Send message <i className="ri-send-plane-line" />
+
+            <button
+              className="button contact-submit"
+              type="submit"
+              disabled={isSending}
+            >
+              {isSending ? (
+                <>
+                  <LoaderCircle size={18} className="contact-spinner" />
+                  Sending...
+                </>
+              ) : (
+                <>
+                  Send Message
+                  <Send size={17} />
+                </>
+              )}
             </button>
-            <p className="form-status" role="status">{formMessage}</p>
+
+            <p
+              className={`form-status ${
+                messageType ? `form-status-${messageType}` : ""
+              }`}
+              role="status"
+              aria-live="polite"
+            >
+              {formMessage}
+            </p>
           </form>
         </Reveal>
       </div>

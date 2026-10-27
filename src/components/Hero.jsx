@@ -1,10 +1,10 @@
+
 import { useState } from "react";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
-import profileImage from "../assets/profile-placeholder.svg";
 import { profile } from "../data/profile.js";
 import TypingText from "./TypingText.jsx";
+import "./Hero.css";
 
-// My intro, contact links, and a photo spot I can replace later.
 export default function Hero() {
   const [resumeMenuOpen, setResumeMenuOpen] = useState(false);
 
@@ -32,7 +32,6 @@ export default function Hero() {
     resumes.forEach((resume, index) => {
       setTimeout(() => {
         const link = document.createElement("a");
-
         link.href = resume.url;
         link.download = resume.name;
 
@@ -66,10 +65,7 @@ export default function Hero() {
           <i className="ri-github-fill" />
         </a>
 
-        <a
-          href={`mailto:${profile.email}`}
-          aria-label="Email Suresh"
-        >
+        <a href={`mailto:${profile.email}`} aria-label="Email Suresh">
           <i className="ri-mail-line" />
         </a>
 
@@ -107,6 +103,7 @@ export default function Hero() {
             <button
               className="button resume-button"
               onClick={() => setResumeMenuOpen(!resumeMenuOpen)}
+              aria-expanded={resumeMenuOpen}
             >
               Download resume
               <ChevronDown size={18} />
@@ -114,8 +111,6 @@ export default function Hero() {
 
             {resumeMenuOpen && (
               <div className="resume-menu">
-
-                {/* Full Stack Resume */}
                 <a
                   href="/Resumes/Suresh_Resume_FullStack.pdf"
                   download="Suresh_Resume_FullStack.pdf"
@@ -123,7 +118,6 @@ export default function Hero() {
                   Java Full Stack Developer
                 </a>
 
-                {/* Java Backend Resume */}
                 <a
                   href="/Resumes/Suresh_Resume_Java_Backend_Dev.pdf"
                   download="Suresh_Resume_Java_Backend_Dev.pdf"
@@ -131,7 +125,6 @@ export default function Hero() {
                   Java Backend Developer
                 </a>
 
-                {/* React Frontend Resume */}
                 <a
                   href="/Resumes/Suresh_Resume_React_Frontend_Dev.pdf"
                   download="Suresh_Resume_React_Frontend_Dev.pdf"
@@ -139,7 +132,6 @@ export default function Hero() {
                   React Frontend Developer
                 </a>
 
-                {/* Junior Web Developer Resume */}
                 <a
                   href="/Resumes/Suresh_Resume_Junior_Web_Dev.pdf"
                   download="Suresh_Resume_Junior_Web_Dev.pdf"
@@ -147,29 +139,37 @@ export default function Hero() {
                   Junior Web Developer
                 </a>
 
-                <div className="resume-divider"></div>
+                <div className="resume-divider" />
 
-                {/* Download All 4 Resumes */}
                 <button onClick={downloadAllResumes}>
                   Download All 4 Resumes
                 </button>
-
               </div>
             )}
           </div>
         </div>
       </div>
 
-      <div className="hero-visual">
-        <div className="portrait-bg" />
+      {/* Cartoon developer animation */}
+      
+{/* Full-screen animated background */}
+<div className="hero-visual">
+  <video
+    className="hero-animation"
+    autoPlay
+    loop
+    muted
+    playsInline
+    preload="auto"
+    aria-hidden="true"
+  >
+    <source
+      src="/developer-animation.mp4"
+      type="video/mp4"
+    />
+  </video>
+</div>
 
-        {/* Replace this placeholder image with my own photo when it's ready. */}
-        <img
-          className="portrait"
-          src={profileImage}
-          alt="Developer portrait placeholder"
-        />
-      </div>
 
       <a className="scroll" href="#about">
         <i className="ri-mouse-line" />
