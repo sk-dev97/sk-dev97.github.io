@@ -15,8 +15,8 @@ section.hero.container {
 
   width: 100%;
   max-width: 1400px;
-  min-height: 97vh;
-  min-height: 97svh;
+  min-height: 100vh;
+  min-height: 100svh;
   margin: 0 auto;
   padding: 4rem 3rem 5rem;
 
@@ -275,5 +275,45 @@ section.hero.container .portrait-bg {
 
   section.hero.container > .hero-visual {
     aspect-ratio: 4 / 3;
+  }
+}
+
+/* ===== FIX RESUME DOWNLOAD DROPDOWN ===== */
+
+section.hero.container {
+  overflow: visible;
+}
+
+section.hero.container > .hero-copy {
+  position: relative;
+  z-index: 10;
+}
+
+/* Keep the resume dropdown above the video */
+section.hero.container .resume-dropdown,
+section.hero.container .resume-menu,
+section.hero.container .resume-options {
+  position: relative;
+  z-index: 20;
+}
+
+/* Ensure dropdown items are fully visible */
+section.hero.container .resume-dropdown a,
+section.hero.container .resume-menu a,
+section.hero.container .resume-options a {
+  display: block;
+  white-space: normal;
+}
+
+/* Phone view */
+@media (max-width: 768px) {
+  section.hero.container {
+    overflow: visible;
+  }
+
+  section.hero.container .resume-dropdown,
+  section.hero.container .resume-menu,
+  section.hero.container .resume-options {
+    max-width: 100%;
   }
 }
